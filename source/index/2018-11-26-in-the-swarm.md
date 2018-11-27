@@ -5,4 +5,4 @@ tags: 'technology, digital, algorithms'
 ---
 This is just a test!
 
-![Test](/source/assets/images/iems_l3.jpg)
+![Test](/source/assets/images/documentation2016.jpg)
