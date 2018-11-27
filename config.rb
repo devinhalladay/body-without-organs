@@ -9,8 +9,8 @@ activate :autoprefixer do |prefix|
 end
 
 activate :blog do |b|
-  b.sources = "index/{year}-{month}-{day}-{title}.html"
-  b.default_extension = ".md.erb"
+  b.sources = "index/{year}-{month}-{day}-{title}"
+  b.default_extension = ".md"
   b.taglink = "index/{tag}.html"
   # b.tag_template = "item.html"
   b.permalink = "{title}"
