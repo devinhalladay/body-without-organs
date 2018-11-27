@@ -43,7 +43,7 @@ $(document).ready(function() {
     domain = 'http://localhost:4567/';
     link = 'http://localhost:4567/';
   } else {
-    domain = 'http://body-without-organs.netlify.com/';
+    domain = 'https://body-without-organs.netlify.com/';
   }
   link = $(location).attr('href');
   docHeight = $('#contents').height();
