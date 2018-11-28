@@ -2,20 +2,47 @@ $(document).ready(function() {
 
   $body = $('body');
 
+  var mouse = {
+      x: 0,
+      y: 0
+    },
+    offset = {
+      x: 10,
+      y: 10
+    };
+  $('.link-thumbnail img').on('mouseenter', function() {
+    var src = $(this).attr('src');
+    $('.popover').html('<img src="' + src + '">').show();
+    offset.x = -$('.popover').width() / 2;
+    clearTimeout(this.timer);
+  }).on('mouseleave', function() {
+    this.timer = setTimeout(function() {
+      $('.popover').hide();
+    }, 10);
+  });
+  document.addEventListener('mousemove', function(e) {
+    mouse.x = e.pageX;
+    mouse.y = e.pageY;
+    $('.popover').css({
+      left: (mouse.x + offset.x) + 'px',
+      top: (mouse.y + offset.y) + 'px'
+    });
+  });
+
   $(".term > a").click(function(event) {
     event.preventDefault();
     var $body = $('body')
     var that = $(this).parents('li');
     var parent = that.parents('ul');
 
-    if(that.hasClass('current-filter')){
+    if (that.hasClass('current-filter')) {
       $('li', parent).removeClass('current-filter');
     } else {
       $('li', parent).removeClass('current-filter');
       that.addClass('current-filter');
     }
 
-    if($('.current-filter').length){
+    if ($('.current-filter').length) {
       $body.addClass('filter-enabled');
     } else {
       $body.removeClass('filter-enabled');
@@ -295,10 +322,9 @@ $(document).ready(function() {
 
 });
 
-$.extend($.easing,
-{
-	ease: function (x, t, b, c, d) {
-		if ((t/=d/2) < 1) return c/2*t*t*t*t + b;
-		return -c/2 * ((t-=2)*t*t*t - 2) + b;
-	}
+$.extend($.easing, {
+  ease: function(x, t, b, c, d) {
+    if ((t /= d / 2) < 1) return c / 2 * t * t * t * t + b;
+    return -c / 2 * ((t -= 2) * t * t * t - 2) + b;
+  }
 });

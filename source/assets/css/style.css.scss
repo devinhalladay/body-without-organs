@@ -226,3 +226,10 @@ p {
 	position: relative;
 	font-size: 1.4em;
 }
+
+.popover {
+	display: none;
+position: fixed;
+pointer-events: none;
+max-width: 500px;
+}
