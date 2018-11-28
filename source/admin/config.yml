@@ -13,7 +13,7 @@ collections: # A list of collections the CMS should be able to edit
     create: true # Allow users to create new documents in this collection
     extension: ".html.md"
     format: "frontmatter"
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}.html"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields: # The fields each document in this collection have
       - {label: "Title", name: "title", widget: "string", required: false, tagname: "h1"}
       - {label: 'Image', name: 'image', widget: 'image', required: false, tagname: ''}
