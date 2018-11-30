@@ -10,7 +10,7 @@
     </header>
 
     <ul class="index">
-      <% blog.tags.sort.each do |term, items| %>
+      <% blog.tags.sort_by{|term, items| items.length}.each do |term, items| %>
         <li class="term">
           <a href><%= term.capitalize() %></a>
           <ul class="term-items">
