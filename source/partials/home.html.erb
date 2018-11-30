@@ -10,9 +10,9 @@
     </header>
 
     <ul class="index">
-      <% blog.tags.sort_by{|term, items| items.length}.each do |term, items| %>
+      <% blog.tags.sort_by{|term, items| items.length}.reverse.each do |term, items| %>
         <li class="term">
-          <a href><%= term.capitalize() %></a>
+          <a href><%= term.split.map(&:capitalize)*' ' %></a>
           <ul class="term-items">
             <% items.each_with_index do |item, index| %>
               <li>
