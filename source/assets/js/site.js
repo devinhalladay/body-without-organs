@@ -259,7 +259,7 @@ $(document).ready(function() {
 
 
   // Contents click
-  $('.term-items li a').live('click', function(e) {
+  $('.term-items li a, .vis-item-content a').live('click', function(e) {
     link = $(this).attr('href');
 
     if (!$('.layer-2').hasClass('inactive')) {

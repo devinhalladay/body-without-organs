@@ -20,7 +20,7 @@ body {
 	-webkit-text-size-adjust:none; zoom:1;
 	background:#000; color:#fff;
 	line-height: 2.4em;
-	font-family:jaf-lapture-display, Times New Roman, serif;
+	font-family:jaf-lapture-display, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -166,7 +166,9 @@ ol, ul {
 }
 
 .index {
-  margin-right: 80px;
+	border-bottom: 1px solid white;
+	padding-bottom: 40px;
+	margin-bottom: 40px;
 	.term {
 		display: inline;
 		opacity: 1;
@@ -233,3 +235,14 @@ position: fixed;
 pointer-events: none;
 max-width: 500px;
 }
+
+
+
+
+#timeline {
+  padding-right: 80px;
+	min-height: 100vh;
+}
+
+
+@import "timeline";
