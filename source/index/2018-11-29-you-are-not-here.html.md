@@ -1,7 +1,7 @@
 ---
 title: You Are (Not) Here
 image: /assets/images/vr-iphone.png
-tags: 'Technical Realities, Modernity, VR'
+tags: 'Technical Realities, Modernity, Virtual Reality'
 ---
 ![](/assets/images/vr-iphone.png)
 
