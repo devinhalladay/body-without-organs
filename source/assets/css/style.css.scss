@@ -237,6 +237,19 @@ max-width: 500px;
 z-index: 999999;
 }
 
+#item {
+	a {
+		text-decoration: underline;
+	}
+
+	h2 {
+		font-size: 1.8em;
+		font-weight: 600;
+		font-family: signo, neue-haas-unica, Helvetica Neue, Helvetica, Arial, sans-serif;
+		margin-bottom: 1em;
+	}
+}
+
 
 
 
