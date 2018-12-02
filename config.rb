@@ -1,3 +1,4 @@
+activate :sprockets
 activate :livereload
 
 set :css_dir, "assets/css"
@@ -17,5 +18,19 @@ activate :blog do |b|
   b.name = @app.data.site.title
   b.layout = "item"
 end
+
+activate :search do |search|
+
+  search.resources = ['index/']
+
+  search.fields = {
+    title:   {boost: 100, store: true, required: true},
+    content: {boost: 50},
+    url:     {index: false, store: true},
+    tags:    {boost: 40, store: true},
+    image:   {store: true}
+  }
+end
+
 
 activate :directory_indexes

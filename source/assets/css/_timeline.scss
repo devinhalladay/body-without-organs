@@ -720,7 +720,14 @@ div.vis-network div.vis-navigation div.vis-button.vis-zoomExtends {
 	border-width: 1px;
 	background-color: #ffffff;
 	display: inline-block;
-	z-index: 1
+	z-index: 1;
+
+  img {
+    height: 40px;
+    display: inline-block;
+    margin-bottom: -13px;
+    padding-right: 10px;
+  }
 }
 .vis-item.vis-selected {
 	border-color: #ff0000;
@@ -935,7 +942,8 @@ div.vis-network div.vis-navigation div.vis-button.vis-zoomExtends {
 	top: 0;
 	width: 100%;
 	color: #ffffff;
-	box-sizing: border-box
+	box-sizing: border-box;
+  font-weight: 600;
 }
 .vis-labelset .vis-label {
 	border-bottom: 1px solid #ffffff

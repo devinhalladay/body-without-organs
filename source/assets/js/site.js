@@ -1,3 +1,6 @@
+//= require "_search"
+//= require lunr.min
+
 $(document).ready(function() {
 
   $body = $('body');
@@ -12,6 +15,7 @@ $(document).ready(function() {
     };
   $('.link-thumbnail img').on('mouseenter', function() {
     var src = $(this).attr('src');
+    console.log(src);
     $('.popover').html('<img src="' + src + '">').show();
     offset.x = -$('.popover').width() / 2;
     clearTimeout(this.timer);
@@ -65,7 +69,6 @@ $(document).ready(function() {
 
   pagePosition = 0;
 
-  results = $('.results li').length;
   if (document.location.hostname == 'localhost') {
     domain = 'http://localhost:4567/';
     link = 'http://localhost:4567/';
@@ -259,7 +262,7 @@ $(document).ready(function() {
 
 
   // Contents click
-  $('.term-items li a, .vis-item-content a').live('click', function(e) {
+  $('.term-items li a, .vis-item-content a, .result a').live('click', function(e) {
     link = $(this).attr('href');
 
     if (!$('.layer-2').hasClass('inactive')) {

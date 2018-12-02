@@ -29,6 +29,10 @@
       <% end %>
     </ul>
     <div id="timeline"></div>
+    <div class="search">
+      <input id="search" placeholder="Search for..." type="text">
+      <div class="search-results"></div>
+    </div>
     <div class="popover"></div>
   </div>
 </section>
@@ -61,7 +65,7 @@
     {
       id: <%= index %>,
       group: <%= blog.tags.keys.index(item.tags.first) %>,
-      content: '<a href="<%= item.url %>"><%= item.title %></a>',
+      content: '<a href="<%= item.url %>"><% if item.data.image %><img src="<%= item.data.image %>" alt="<%= item.title %>"></span><% end %><%= item.title %></a>',
       start: '<%= item.date.strftime('%Y-%m-%d') %>',
       type: 'box'
     },
