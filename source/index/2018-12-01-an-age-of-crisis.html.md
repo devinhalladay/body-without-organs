@@ -1,5 +1,5 @@
 ---
 title: An Age of Crisis
-tags: Modernity
+tags: 'Modernity, Crisis'
 ---
 Modernity is defined, ultimately, by crisis.
