@@ -19,6 +19,22 @@ activate :blog do |b|
   b.layout = "item"
 end
 
+helpers do
+  def rhizomeEdgesArray
+    arr = []
+    count = 0
+    loop do
+      a, b = [*0..blog.articles.length].sample(2)
+      next if a.eql? (b) or arr.include?([a, b])
+      arr << [a, b]
+      count += 1
+      break if count.eql?(blog.articles.length)
+    end
+
+    return arr
+  end
+end
+
 activate :search do |search|
 
   search.resources = ['index/']
