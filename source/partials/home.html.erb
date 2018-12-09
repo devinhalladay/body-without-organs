@@ -97,7 +97,7 @@
     <% blog.articles.each_with_index do |item, index| %>
       <% secondsSincePublished = ((Time.now - item.date) * 24 * 60 * 60).to_f %>
       <% start1 = 0 %>
-      <% stop1 = ((Time.now - blog.articles.first.date) * 24 * 60 * 60).to_f %>
+      <% stop1 = ((Time.now - blog.articles.last.date) * 24 * 60 * 60).to_f %>
       <% start2 = 0.2 %>
       <% stop2 = 1 %>
       <% dateOpacity = (secondsSincePublished - start1) * (stop2 - start2) / (stop1 - start1) + start2 %>
