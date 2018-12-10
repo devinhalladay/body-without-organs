@@ -20,9 +20,13 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Tags", name: "tags", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown", required: false}
       - {
-          label: "Tags 2"
-          name: "tags2"
-          widget: "select"
-          multiple: true
-          options: ["Design", "UX", "Dev"]
+          label: "Tags 2",
+          name: "tags2",
+          widget: "select",
+          multiple: true,
+          options: [
+            "Design",
+            "UX",
+            "Dev"
+          ]
         }
