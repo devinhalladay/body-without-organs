@@ -36,6 +36,9 @@
   </header>
 
   <article>
+    <% if current_page.data.image %>
+      <img src="<%= current_page.data.image %>" class="header-image">
+    <% end %>
     <%= yield %>
   </article>
   <div class="clear"></div>

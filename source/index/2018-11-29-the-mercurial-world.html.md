@@ -7,4 +7,3 @@ tags:
   - Modernity
   - Mercurial
 ---
-![](/assets/images/911.jpg)
