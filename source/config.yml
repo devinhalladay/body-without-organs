@@ -11,13 +11,22 @@ collections: # A list of collections the CMS should be able to edit
     label: "Item" # Used in the UI, ie.: "New Post"
     folder: "source/index" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    identifier_field: name
     extension: ".html.md"
     format: "frontmatter"
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields: # The fields each document in this collection have
       - {label: "Title", name: "title", widget: "string", required: false, tagname: "h1"}
-      - {label: "Name", name: "name", widget: "string"}
       - {label: 'Image', name: 'image', widget: 'image', required: false, tagname: ''}
       - {label: "Tags", name: "tags", widget: "string"}
+      - {
+          label: "Tags 2",
+          name: "tags2",
+          widget: "select",
+          multiple: true,
+          options: [
+            "Design",
+            "UX",
+            "Dev"
+          ]
+        }
       - {label: "Body", name: "body", widget: "markdown", required: false}

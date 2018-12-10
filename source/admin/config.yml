@@ -25,8 +25,11 @@ collections: # A list of collections the CMS should be able to edit
           widget: "select",
           multiple: true,
           options: [
-            "Design",
-            "UX",
-            "Dev"
+            "Modernity",
+            "Crisis",
+            "Technical Realities",
+            "Mercurial",
+            "Grid",
+            "Time"
           ]
         }

@@ -1,6 +1,7 @@
 ---
-title: ''
+title: 'World of Ideas'
 image: /assets/images/large_c60b17a980cbc4535178c133e9dc8dd0.png
-tags: 'Modernity, The Mercurial'
+tags:
+  - Modernity
+  - Mercurial
 ---
-

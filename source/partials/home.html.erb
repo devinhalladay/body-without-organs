@@ -108,9 +108,14 @@
         label: '<%= item.title %>',
         href: '<%= item.url %>',
         color: {
-          background: 'rgba(255,255,255,' + <%= dateOpacity %>
+          background: 'rgba(255,255,255,' + <%= 1-dateOpacity %>
         },
         font: {
+          <% if 1-dateOpacity < 0.3 %>
+          color: '#ffffff',
+          <% else %>
+          color: '#000000',
+          <% end %>
           face: 'signo'
         },
         <% if item.data.image %>
@@ -121,7 +126,7 @@
           face: 'signo'
         },
         color: {
-          background: 'rgba(255,255,255,' + <%= dateOpacity %>
+          background: 'rgba(255,255,255,' + <%= 1-dateOpacity %>
         },
         <% end %>
         shapeProperties: {

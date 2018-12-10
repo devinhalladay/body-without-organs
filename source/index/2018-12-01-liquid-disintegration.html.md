@@ -1,6 +1,8 @@
 ---
 title: Liquid (Disintegration)
-tags: 'Modernity, Crisis'
+tags:
+  - Modernity
+  - Crisis
 ---
 ## [Head to the Are.na channel](https://www.are.na/devin-halladay/liquid-disintegration)
 
