@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: devinhalladay/body-without-organs # Path to your GitHub repository
-  branch: master # Branch to update (master by default)
+  branch: new # Branch to update (master by default)
 
 media_folder: "source/assets/images" # Folder where user uploaded files should go
 public_folder: "/assets/images"
