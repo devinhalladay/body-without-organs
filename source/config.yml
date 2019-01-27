@@ -17,11 +17,9 @@ collections: # A list of collections the CMS should be able to edit
     fields: # The fields each document in this collection have
       - {label: "Title", name: "title", widget: "string", required: false, tagname: "h1"}
       - {label: 'Image', name: 'image', widget: 'image', required: false, tagname: ''}
-      - {label: "Tags", name: "tags", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown", required: false}
       - {
-          label: "Tags 2",
-          name: "tags2",
+          label: "Tags",
+          name: "tags",
           widget: "select",
           multiple: true,
           options: [
@@ -79,3 +77,4 @@ collections: # A list of collections the CMS should be able to edit
             "Liberation",
           ]
         }
+      - {label: "Body", name: "body", widget: "markdown", required: false}
