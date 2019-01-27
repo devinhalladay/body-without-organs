@@ -7,11 +7,11 @@ media_folder: "source/assets/images" # Folder where user uploaded files should g
 public_folder: "/assets/images"
 
 collections: # A list of collections the CMS should be able to edit
-  - name: "item" # Used in routes, ie.: /admin/collections/:slug/edit
-    label: "Item" # Used in the UI, ie.: "New Post"
+  - name: "term" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Term" # Used in the UI, ie.: "New Post"
     folder: "source/terms" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    extension: ".html.md"
+    extension: ".html.md.erb"
     format: "frontmatter"
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields: # The fields each document in this collection have
