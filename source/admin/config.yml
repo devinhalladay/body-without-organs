@@ -1,0 +1,35 @@
+backend:
+  name: github
+  repo: devinhalladay/body-without-organs # Path to your GitHub repository
+  branch: master # Branch to update (master by default)
+
+media_folder: "source/assets/images" # Folder where user uploaded files should go
+public_folder: "/assets/images"
+
+collections: # A list of collections the CMS should be able to edit
+  - name: "item" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Item" # Used in the UI, ie.: "New Post"
+    folder: "source/index" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    extension: ".html.md"
+    format: "frontmatter"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields: # The fields each document in this collection have
+      - {label: "Title", name: "title", widget: "string", required: false, tagname: "h1"}
+      - {label: 'Image', name: 'image', widget: 'image', required: false, tagname: ''}
+      - {label: "Tags", name: "tags", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown", required: false}
+      - {
+          label: "Tags 2",
+          name: "tags2",
+          widget: "select",
+          multiple: true,
+          options: [
+            "Modernity",
+            "Crisis",
+            "Technical Realities",
+            "Mercurial",
+            "Grid",
+            "Time"
+          ]
+        }

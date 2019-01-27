@@ -1,0 +1,104 @@
+<% wrap_layout :layout do %>
+<% termsWithDefinitions = {} %>
+<% termsWithoutDefinitions = [] %>
+<% data.terms.each_with_index do |term, i| %>
+  <% if blog.tags.include? term %>
+    <% termsWithDefinitions[term] = blog.tags.find{|key, value| key == term }[1].size  %>
+  <% else %>
+    <% termsWithoutDefinitions << term %>
+  <% end %>
+<% end %>
+<% termsWithDefinitions = termsWithDefinitions.sort_by{ |term, number| number }.reverse %>
+
+
+<%# blog.tags.find{|key, value| key == term }[1].size %>
+
+<header>
+  <div class="container">
+    <h1>A Body Without Organs</h1>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <section class="terms">
+      <h2>Terms</h2>
+      <ul class="terms">
+        <% termsWithDefinitions.each_with_index do |term, i| %>
+          <li class="term">
+            <a href="<%= tag_path(term[0]) %>" data-imagelink="https://via.placeholder.com/150">
+              <img class="thumbnail" src="https://via.placeholder.com/150">
+              <span class="term-title">
+                <%= term[0] %><sup>(<%= term[1] %>)</sup><% if i != termsWithDefinitions.size %>,<% end %>
+              </span>
+              
+            </a>
+          </li>
+        <% end %>
+        <% termsWithoutDefinitions.each_with_index do |term, i| %>
+          <li class="term no-definitions">
+            <span class="term-title">
+              <%= term %><% if i != termsWithoutDefinitions.size - 1 %>,<% end %>
+            </span>
+          </li>
+        <% end %>
+      </ul>
+      </section>
+      <section class="search">
+        <div class="search-header">
+          <img src="/assets/images/down-arrow.svg" alt="Exit Drawer">
+          <h2>Search</h2>
+        </div>
+        <div class="search-contents">
+          <input id="search" placeholder="Search for..." type="text">
+          <div class="search-results"></div>
+        </div>
+      </section>
+      <section class="rhizome">
+        <div class="rhizome-header">
+          <img src="/assets/images/down-arrow.svg" alt="Exit Drawer">
+          <h2>Rhizome</h2>
+        </div>
+        <div class="rhizome-contents">
+          <div id="rhizome"></div>
+        </div>
+      </section>
+    </div>
+</main>
+
+<section class="section--drawer">
+  <header>
+    <div class="container">
+      <img class="exit-drawer" src="/assets/images/exit.svg" alt="Exit Drawer">
+    </div>
+  </header>
+  <div class="container content-area">
+  </div>
+</section>
+
+
+<section class="content-drawer is-open">
+  <header>
+    <div class="container">
+      <img class="exit-drawer" src="/assets/images/exit.svg" alt="Exit Drawer">
+    </div>
+  </header>
+  <div class="container content-area">
+  <article>
+    <% if current_page.data.image %>
+    <figure>
+      <img src="<%= current_page.data.image %>" alt="<%= current_page.title %>">
+    </figure>
+    <% end %>
+    <%= yield %>
+  </article>
+  </div>
+</section>
+
+<div class="close-section-drawer"></div>
+<div class="close-content-drawer" style="display: block; opacity: 0.7;"></div>
+
+<div class="popover"></div>
+
+<%= partial "partials/visjs" %>
+<% end %>

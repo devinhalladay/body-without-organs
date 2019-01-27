@@ -1,0 +1,123 @@
+<script type="text/javascript">
+  var nodes = new vis.DataSet([
+    <% blog.articles.each_with_index do |item, index| %>
+      <% secondsSincePublished = ((Time.now - item.date) * 24 * 60 * 60).to_f %>
+      <% start1 = 0 %>
+      <% stop1 = ((Time.now - blog.articles.last.date) * 24 * 60 * 60).to_f %>
+      <% start2 = 0.2 %>
+      <% stop2 = 1 %>
+      <% dateOpacity = (secondsSincePublished - start1) * (stop2 - start2) / (stop1 - start1) + start2 %>
+
+      <% articleDate = item.date %>
+      {
+        id: <%= index %>,
+        label: '<%= item.title %>',
+        href: '<%= item.url %>',
+        color: {
+          background: 'rgba(0,0,0,' + <%= 1-dateOpacity.round(2) %>
+        },
+        font: {
+          <% if 1-dateOpacity < 0.3 %>
+          color: '#000000',
+          <% else %>
+          color: '#ffffff',
+          <% end %>
+          face: 'Aileron'
+        },
+        <% if item.data.image %>
+        shape: 'image',
+        image: 'https://body-without-organs.netlify.com/<%= item.data.image %>',
+        font: {
+          color: 'rgba(0,0,0,' + <%= 1-dateOpacity.round(2) %>,
+          face: 'Aileron'
+        },
+        color: {
+          background: 'rgba(0,0,0,' + <%= 1-dateOpacity.round(2) %>
+        },
+        <% end %>
+        shapeProperties: {
+          borderRadius: 0,     // only for box shape
+        },
+        clickToUse: true,
+        barnesHut: {
+          springLength: 600,
+        },
+        solver: 'barnesHut',
+      },
+    <% end %>
+  ]);
+
+  var edges = new vis.DataSet([
+    <% rhizomeEdgesArray.each_with_index do |item, index| %>
+      {
+        from: <%= item[0] %>,
+        to: <%= item[1] %>
+      },
+    <% end %>
+    <% rhizomeEdgesArray.each_with_index do |item, index| %>
+      {
+        from: <%= item[0] %>,
+        to: <%= item[1] %>
+      },
+    <% end %>
+  ]);
+
+  // create a network
+  var container = document.getElementById('rhizome');
+
+  // provide the data in the vis format
+  var data = {
+    nodes: nodes,
+    edges: edges
+  };
+  var options = {
+    height: '400px',
+    // clickToUse: true,
+    nodes: {
+      shape: 'box',
+      color: {
+        border: '#ffffff',
+        background: '#000000',
+        highlight: {
+          border: '#ffffff',
+          background: '#000000'
+        },
+        hover: {
+          border: '#ffffff',
+          background: '#000000'
+        }
+      },
+    },
+    edges: {
+      color: {
+        color:'#000000',
+        highlight:'#000000',
+        hover: '#000000',
+        inherit: 'from',
+      }
+    },
+    physics: {
+      enabled: false
+    }
+  };
+
+  // initialize your network!
+  var network = new vis.Network(container, data, options);
+
+  network.on('click', function (properties) {
+    var nodeID = properties.nodes[0];
+    var clickedNode = this.body.nodes[nodeID];
+
+      let link = clickedNode.options.href;
+
+      $('.content-drawer .content-area').load(`${link} article`, function () {
+        $('.content-drawer').addClass('is-open');
+        $('body').addClass('drawer-open');
+        $('.close-content-drawer').show();
+        $('.close-content-drawer').stop().animate({
+          opacity: 0.7
+        }, 1000);
+      })
+
+  });
+</script>
