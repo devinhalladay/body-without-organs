@@ -8,6 +8,7 @@
   <% end %>
 <% end %>
 <% termsWithDefinitions = termsWithDefinitions.sort_by{ |term, number| number }.reverse %>
+<% termsWithoutDefinitions = termsWithoutDefinitions.sort_by{ |term, number| term } %>
 
 
 <%# blog.tags.find{|key, value| key == term }[1].size %>
@@ -31,7 +32,7 @@
 
           <li class="term">
             <a href="<%= tag_path(term[0]) %>" <% if articlesImages %>data-imagelink="<%= articlesImages.first %>"<% end %>>
-              <% if articlesImages %><img class="thumbnail" src="<%= articlesImages.first %>"><% end %>
+              <% if articlesImages.first %><img class="thumbnail" src="<%= articlesImages.first %>"><% end %>
               <span class="term-title">
                 <%= term[0] %><sup>(<%= term[1] %>)</sup><% if i != termsWithDefinitions.size %>,<% end %>
               </span>
@@ -64,6 +65,15 @@
         </div>
         <div class="rhizome-contents">
           <div id="rhizome"></div>
+        </div>
+      </section>
+      <section class="timeline">
+        <div class="timeline-header">
+          <img src="/assets/images/down-arrow.svg" alt="Exit Drawer">
+          <h2>Timeline</h2>
+        </div>
+        <div class="timeline-contents">
+          <div id="timeline"></div>
         </div>
       </section>
     </div>

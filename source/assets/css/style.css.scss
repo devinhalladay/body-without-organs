@@ -94,7 +94,7 @@ li.term {
   transition: 0.4s all ease;
   font-size: 2rem;
   align-items: center;
-  line-height: 0.9;
+  line-height: 1;
   margin-bottom: 0.5em;
   
   &:not(:last-child) {
@@ -132,10 +132,10 @@ li.term {
   overflow: scroll;
   -webkit-transform: translate3d(100%,0,0);
   transform: translate3d(100%,0,0);
-  -webkit-transition: -webkit-transform 1s cubic-bezier(.645,.045,.355,1);
-  transition: -webkit-transform 1s cubic-bezier(.645,.045,.355,1);
-  transition: transform 1s cubic-bezier(.645,.045,.355,1);
-  transition: transform 1s cubic-bezier(.645,.045,.355,1), -webkit-transform 1s cubic-bezier(.645,.045,.355,1);
+  -webkit-transition: -webkit-transform 0.4s cubic-bezier(.645,.045,.355,1);
+  transition: -webkit-transform 0.4s cubic-bezier(.645,.045,.355,1);
+  transition: transform 0.4s cubic-bezier(.645,.045,.355,1);
+  transition: transform 0.4s cubic-bezier(.645,.045,.355,1), -webkit-transform 0.4s cubic-bezier(.645,.045,.355,1);
 
   &.is-open {
     -webkit-transform: translate3d(0,0,0);
@@ -187,10 +187,10 @@ sup {
   overflow: scroll;
   -webkit-transform: translate3d(100%, 0, 0);
   transform: translate3d(100%, 0, 0);
-  -webkit-transition: -webkit-transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: -webkit-transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: -webkit-transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
 
   &.is-open {
     -webkit-transform: translate3d(0,0,0);
@@ -225,17 +225,17 @@ article {
   margin-bottom: 4em;
 }
 
-.search, .rhizome {
+.search, .rhizome, .timeline {
   &.is-open {
-    .search-contents, .rhizome-contents {
+    .search-contents, .rhizome-contents, .timeline-contents {
       display: block;
     }
 
-    .search-header img, .rhizome-header img {
+    .search-header img, .rhizome-header img, .timeline-header img {
       transform: rotate(0deg);
     }
   }
-  .search-contents, .rhizome-contents {
+  .search-contents, .rhizome-contents, .timeline-contents {
     display: none;
   }
   .search-results {
@@ -260,7 +260,7 @@ article {
     color: #000000;
     background-color: #fff;
   }
-  .search-header, .rhizome-header {
+  .search-header, .rhizome-header, .timeline-header {
     border-top: 1px solid black;
     height: 60px;
     display: flex;
@@ -302,3 +302,5 @@ section:last-child {
     }
   }
 }
+
+@import "timeline";
