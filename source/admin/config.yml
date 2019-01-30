@@ -77,6 +77,8 @@ collections: # A list of collections the CMS should be able to edit
             "Utopia",
             "Depth",
             "Liberation",
+            "Surveillance",
+            "Technology"
           ]
         }
       - {label: "Body", name: "body", widget: "markdown", required: false}
