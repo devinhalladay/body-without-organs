@@ -32,7 +32,7 @@
 
           <li class="term">
             <a href="<%= tag_path(term[0]) %>" <% if articlesImages %>data-imagelink="<%= articlesImages.first %>"<% end %>>
-              <% if articlesImages.first %><img class="thumbnail" src="<%= articlesImages.first %>"><% end %>
+              <% if articlesImages.first %><img class="thumbnail" src="<%= articlesImages.sample %>"><% end %>
               <span class="term-title">
                 <%= term[0] %><sup>(<%= term[1] %>)</sup><% if i != termsWithDefinitions.size %>,<% end %>
               </span>

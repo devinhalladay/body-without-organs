@@ -11,7 +11,7 @@
       <% articleDate = item.date %>
       {
         id: <%= index %>,
-        label: '<%= item.title %>',
+        label: "<%= item.title %>",
         href: '<%= item.url %>',
         color: {
           background: 'rgba(0,0,0,' + <%= 1-dateOpacity.round(2) %>
@@ -71,7 +71,7 @@
     edges: edges
   };
   var options = {
-    height: '400px',
+    height: '800px',
     // clickToUse: true,
     nodes: {
       shape: 'box',
@@ -148,9 +148,9 @@
     {
       id: <%= index %>,
       group: <%= blog.tags.keys.index(item.tags.first) %>,
-      content: '<a href="<%= item.url %>"><% if item.data.image %><img src="<%= item.data.image %>" alt="<%= item.title %>"></span><% end %><%= item.title %></a>',
+      content: "<a href='<%= item.url %>'><% if item.data.image %><img src='<%= item.data.image %>'></span><% end %><%= item.title %></a>",
       start: '<%= item.date.strftime('%Y-%m-%d') %>',
-      label: '<%= item.title %>',
+      label: "<%= item.title %>",
       shape: 'box',
       color: {
         background: "#ffffff"
